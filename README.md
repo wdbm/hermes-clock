@@ -1,5 +1,5 @@
 # hermes-clock
 
-a little Javascript web clock
+a little JavaScript web clock
 
 ![](images/hermes-clock_1.png)
