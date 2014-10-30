@@ -1,4 +1,3 @@
-hermes-clock
-============
+# hermes-clock
 
 a little Javascript web clock

@@ -1,0 +1,96 @@
+<html>
+<head>
+<style type="text/css">
+body{
+    background:      #151515;
+    color:           #999;
+    padding:         150px;
+    font-family:     "Museo", "Helvetica Neue", sans-serif;
+    text-shadow:     rgba(0, 0, 0, 0.6) 1px 1px 0;
+}
+a{
+    color:           #999;
+    font-size:       11px;
+    text-decoration: none;
+}
+a:hover{
+    color:           #ddd;
+}
+.block{
+    border-left:     1px solid #999;
+    float:           left;
+    padding:         1em;
+    width:           140px;
+}
+
+h1{
+    margin:          0;
+    font-size:       1.5em;
+}
+ul{
+    padding:         0.25em;
+}
+ul li{
+    list-style:      none;
+    padding:         5px;
+}
+#clock{
+    position:        absolute;
+    bottom:          10px;
+    right:           10px;
+    font-size:       2em;
+}
+</style>
+<script
+    type="text/javascript"
+    src="http://code.jquery.com/jquery.min.js"
+>
+</script>
+<script>
+/* clock */
+function updateClock(){
+	var currentTime       = new Date ();
+	var currentHours      = currentTime.getHours ();
+	var currentMinutes    = currentTime.getMinutes ();
+	var currentSeconds    = currentTime.getSeconds ();
+	// Pad minutes and seconds with leading zeros if required.
+	currentMinutes        = (currentMinutes < 10 ? "0" : "") + currentMinutes;
+	currentSeconds        = (currentSeconds < 10 ? "0" : "") + currentSeconds;
+	// Select either "AM" or "PM" as appropriate.
+    var timeOfDay         = (currentHours < 12) ? "AM" : "PM";
+	// Convert hours to 12-hour format if required.
+    currentHours       = (currentHours > 12) ? currentHours - 12 : currentHours;
+	// Convert hours of "0" to "12".
+    currentHours          = (currentHours == 0) ? 12 : currentHours;
+	// Compose the string for display.
+    var currentTimeString = currentHours +
+        ":" +
+        currentMinutes +
+        ":" +
+        currentSeconds +
+        " " +
+        timeOfDay;
+	// Fill '#clock' div with time.
+    $("#clock").html(currentTimeString);
+}
+$(document).ready(function(){
+    /* add clock */
+    // add empty '#clock' div
+    $('body').append('<div id="clock"></div>');
+    // update clock
+    setInterval('updateClock()', 1000);
+});
+</script>    
+</head>
+<body>
+<pr>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eget accumsan massa. Nam ut diam et tellus eleifend aliquet et ac turpis. Duis rhoncus lorem condimentum leo lacinia, vitae suscipit dui blandit. Mauris semper mauris risus, id mollis libero hendrerit quis. Phasellus euismod risus et dui interdum, non ultrices orci iaculis. Praesent eget elit ac sapien rutrum cursus non vel nunc. Nunc et aliquam erat. Sed tempor massa sit amet justo sollicitudin scelerisque.
+</pr><br><br><pr>
+Praesent viverra eleifend sagittis. Nunc porta diam at ipsum suscipit condimentum. Curabitur fringilla ex sit amet leo placerat efficitur sit amet in tortor. Fusce pellentesque turpis in lorem lobortis, egestas faucibus libero facilisis. Suspendisse pulvinar mi ac nibh posuere faucibus. Morbi iaculis diam at congue pulvinar. Mauris ut arcu sed nibh laoreet finibus nec eu eros. Vestibulum mattis ante vel dapibus pulvinar. Nulla malesuada leo non pharetra iaculis. In porta magna vitae erat pellentesque accumsan. Nunc ultricies vestibulum vulputate. Nam molestie sem nec tristique varius.
+</pr><br><br><pr>
+Pellentesque elementum eget ante sed consectetur. Nunc placerat diam nec dolor luctus faucibus. Quisque felis nibh, bibendum sit amet tempor eu, accumsan id turpis. Morbi aliquam eros orci, quis dapibus neque placerat mattis. Nullam eu ornare odio. Sed varius risus in blandit interdum. Integer tellus purus, cursus sed auctor a, sagittis sed felis. Aenean maximus eget orci non finibus. Nullam aliquet dolor nunc. Aliquam porttitor efficitur ante, vitae pulvinar purus venenatis ac. Praesent accumsan, lectus sed vestibulum dictum, elit orci hendrerit sem, eget dignissim diam justo eget lorem. Sed sit amet ullamcorper libero. Integer sed purus purus. Integer facilisis lacinia ipsum nec pellentesque. Suspendisse varius leo eu pretium dictum.
+</pr><br><br><pr>
+Maecenas convallis fringilla gravida. Mauris quis congue risus. Suspendisse scelerisque mollis fringilla. Nunc maximus urna a augue tristique maximus. Vestibulum malesuada molestie velit ut blandit. Nullam metus lorem, dignissim et condimentum nec, aliquet id risus. Mauris et condimentum nisi. Suspendisse dignissim non nisi sit amet aliquet. Duis accumsan dignissim maximus. Morbi cursus augue ac est fringilla mattis.
+</pr>
+</body>
+</html>
